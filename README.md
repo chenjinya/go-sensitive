@@ -15,7 +15,7 @@ func main(){
 
     
     sensitive.Load("./words.txt")
-    h,s := sensitive.Hit("热比娅亚")
+    h,s := sensitive.Hit("热比垭亚")
 
     fmt.Println(h, s)
 }
