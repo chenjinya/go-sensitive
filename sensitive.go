@@ -49,14 +49,14 @@ func buildTree(wd []string, n map[string]*Node){
 
 }
 
-//深度优先遍历
-func DFSTravelTree(n *Node) {
+//广度优先遍历
+func BFSTravelTree(n *Node) {
 	if n == nil {
 		return
 	}
 	fmt.Println(n.Text)
 	for _, l := range n.Nodes {
-		DFSTravelTree(l)
+		BFSTravelTree(l)
 	}
 }
 
