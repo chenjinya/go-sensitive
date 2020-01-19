@@ -29,15 +29,6 @@ func main(){
 
 ## Benchmark
 
-name |循环次数 |  执行时间 | 占用内存 | 分配内存次数 
--------- | -----| -----| ----- | -----
-50个关键词| 
-BenchmarkHit-4  |                  124059   |          10298 ns/op      |      2480 B/op    |     12 allocs/op |
-BenchmarkTraverseHit-4       |     123309    |          9604 ns/op      |         0 B/op     |     0 allocs/op |
-100个关键词|
-BenchmarkHit-4               |     110617    |          9628 ns/op       |     2480 B/op     |    12 allocs/op |
-BenchmarkTraverseHit-4       |      58798    |         19927 ns/op       |        0 B/op     |     0 allocs/op |
-
 循环次数 |  50 多叉树    | 50 遍历        | 100 多叉树 | 100 遍历 
 --------| -----        | -----         | -----      | -----
 循环次数 | 124059       | 123309        | 110617        | 58798
