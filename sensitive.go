@@ -45,19 +45,14 @@ func buildTree(wd []string, n map[string]*Node) {
 			Nodes: nil, //最后节点为空
 		}
 	} 
-
 	if isLast {
 		n[s].IsEnd = true
 		return
-
 	} 
-
 	if nil == n[s].Nodes {
 		n[s].Nodes = make(map[string]*Node)
 	}
-
 	buildTree(wd[1:], n[s].Nodes)
-	
 
 }
 
