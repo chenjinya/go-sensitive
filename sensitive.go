@@ -17,6 +17,7 @@ var tree = make(Tree)
 //Node结构体
 type Node struct {
 	Text  string `json:"text"`
+	IsEnd bool `json:"is_end"`
 	Nodes Tree   `json:"nodes"`
 }
 
@@ -32,20 +33,31 @@ func formatWords(ws []string) [][]string {
 
 //建立多叉树结构
 func buildTree(wd []string, n map[string]*Node) {
-	if len(wd) == 0 {
+	wl := len(wd)
+	if wl == 0 {
 		return
 	}
 	s := wd[0]
-	if n[s] == nil {
+	isLast := wl == 1
+	if nil == n[s] {
 		n[s] = &Node{
 			Text:  s,
 			Nodes: nil, //最后节点为空
 		}
-	}
-	if len(wd) > 1 {
+	} 
+
+	if isLast {
+		n[s].IsEnd = true
+		return
+
+	} 
+
+	if nil == n[s].Nodes {
 		n[s].Nodes = make(map[string]*Node)
-		buildTree(wd[1:], n[s].Nodes)
 	}
+
+	buildTree(wd[1:], n[s].Nodes)
+	
 
 }
 
@@ -75,7 +87,7 @@ func match(ws *[]string, ofs int, t *Tree, rs string) (bool, string) {
 		return match(ws, ofs+1, &tree, "")
 	}
 
-	if (*t)[(*ws)[ofs]].Nodes == nil {
+	if (*t)[(*ws)[ofs]].IsEnd == true {
 		return true, rs + (*ws)[ofs]
 	}
 	return match(ws, ofs+1, &(*t)[(*ws)[ofs]].Nodes, rs+(*ws)[ofs])

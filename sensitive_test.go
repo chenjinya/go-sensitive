@@ -16,7 +16,8 @@ var example = map[string]bool{
 "热二笔笔娅": false,
 "二笔热二笔笔娅": false,
 "热二笔笔娅二笔": false,
-"热笔": false,
+"热笔": true,
+"热笔笔笔": true,
 "笔娅": false,
 `
 一二三四五六七八九〇
@@ -78,8 +79,8 @@ func BenchmarkTraverseHit(b *testing.B){
 func TestFile(t *testing.T) {
 
 	Load("./words.txt")
-	//ww := JSONTree()
-	//fmt.Println(ww)
+	// ww := JSONTree()
+	// fmt.Println(ww)
 }
 
 func TestHit(t *testing.T) {
